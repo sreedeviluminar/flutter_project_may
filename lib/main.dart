@@ -16,18 +16,23 @@ class FirstPage extends StatelessWidget {
     // to create a widget tree  (Build context -> to Monitor the widgets in the widget tree)
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
+        //centerTitle: true, // set the appbar title to center of appbar
         title: const Text(
           "Hello",
           style: TextStyle(fontSize: 20, color: Colors.pinkAccent),
         ),
       ),
-      body: const Center(
-          child: Icon(
-        Icons.lan,
-        size: 130,
-        color: Colors.green,
-      )),
+      body:  Center(
+        child: Column( // for column children will place from top left to bottom left
+          mainAxisAlignment: MainAxisAlignment.center, // to move the children to center of column
+          children: [
+            //Icon(Icons.favorite,color: Colors.red,size: 90,),
+           // Image.asset("assets/icons/tree.png",height: 200,width: 200,),
+            Image.network("https://cdn-icons-png.flaticon.com/512/4436/4436481.png"),
+            Text("My Application",style: TextStyle(fontSize: 50),),
+          ],
+        ),
+      ),
     );
   }
 }
