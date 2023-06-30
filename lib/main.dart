@@ -26,20 +26,23 @@ class FirstPage extends StatelessWidget {
         ),
       ),*/
       body: Container(
+        width : double.infinity,
         // color: Colors.blueGrey, // to set a single color to the entire screen
         decoration: const BoxDecoration(
-            // image: DecorationImage(        // to set an image as screen background
+            image: DecorationImage(        // to set an image as screen background
             //   fit: BoxFit.fill,           // to fit the image to the entire screen
             //   image: NetworkImage("https://images.unsplash.com/photo-1524055988636-436cfa46e59e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=435&q=80"),
-            //  image:  AssetImage("assets/images/greennew.jpg")
-          gradient: LinearGradient(
-           // stops: [.3,.4,.1,.1],
-            colors: [
-          Colors.green,
-          Colors.lightGreen,
-          Colors.lightGreenAccent,
-          Colors.lime
-        ], begin: Alignment.bottomRight, end: Alignment.topLeft)),
+             image:  AssetImage("assets/images/greennew.jpg")),
+            gradient: LinearGradient(
+                // stops: [.3,.4,.1,.1],
+                colors: [
+              Colors.green,
+              Colors.lightGreen,
+              Colors.lightGreenAccent,
+              Colors.lime
+            ],
+                begin: Alignment.bottomRight,
+                end: Alignment.topLeft)),
         child: Center(
           child: Column(
             // for column children will place from top left to bottom left
@@ -53,10 +56,10 @@ class FirstPage extends StatelessWidget {
                 width: 200,
               ),
               //Image.network("https://cdn.pixabay.com/photo/2016/12/27/13/10/logo-1933884_640.png", height: 200, width: 200,),
-               Text(
+              Text(
                 "My Application",
                 //style: TextStyle(fontSize: 50,color: Colors.brown,fontWeight: FontWeight.bold),
-                style: GoogleFonts.pacifico(fontSize: 50,color: Colors.brown),
+                style: GoogleFonts.pacifico(fontSize: 50, color: Colors.brown),
               ),
             ],
           ),
