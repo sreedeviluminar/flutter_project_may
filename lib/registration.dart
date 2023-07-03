@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project_may/login.dart';
 
 class RegistrationPage extends StatefulWidget {
   @override
@@ -23,32 +24,47 @@ class _RegistrationPageState extends State<RegistrationPage> {
               "Registration Page",
               style: TextStyle(fontSize: 30),
             ),
-            TextFormField(
-              decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: "UserName"),
-              validator: (email) {  // email - data from text form field
-                if (email!.isEmpty && !email.contains('@')) {
-                  return "Enter a valid email/ field must not be empty";
-                } else {
-                  return null;
-                }
-              },
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextFormField(
+                decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: "UserName"),
+                validator: (email) {  // email - data from text form field
+                  if (email!.isEmpty || !email.contains('@')) {
+                    return "Enter a valid email/ field must not be empty";
+                  } else {
+                    return null;
+                  }
+                },
+              ),
             ),
-            TextFormField(
-              decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: "Password"),
-              validator: (password){
-                if (password!.isEmpty && password.length < 6){
-                  return "Password length should be greater than 6 / must not be empty ";
-                }else{
-                  return null;
-                }
-              },
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextFormField(
+                decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: "Password"),
+                validator: (password){
+                  if (password!.isEmpty || password.length < 6){
+                    return "Password length should be greater than 6 / must not be empty ";
+                  }else{
+                    return null;
+                  }
+                },
+              ),
             ),
             TextFormField(),
-            ElevatedButton(onPressed: () {}, child: const Text("RegistrationPage"))
+            ElevatedButton(onPressed: () {
+              var isValid = formkey.currentState!.validate();
+              if(isValid == true){
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context)=>LoginPage()));
+              }else{
+
+              }
+
+            }, child: const Text("RegistrationPage"))
           ],
         ),
       ),
