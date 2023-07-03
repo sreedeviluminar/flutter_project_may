@@ -3,6 +3,13 @@ import 'package:flutter_project_may/registration.dart';
 import 'home.dart';
 
 class LoginPage extends StatelessWidget {
+  String username = "admin@123";
+  String password = 'abc123';
+
+  // for fetching
+  final uname = TextEditingController();
+  final pass = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,6 +22,7 @@ class LoginPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(12.0),
             child: TextField(
+              controller: uname,
               decoration: InputDecoration(
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30)),
@@ -27,6 +35,7 @@ class LoginPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 12, right: 12, bottom: 12),
             child: TextField(
+              controller: pass,
               obscureText: true,
               obscuringCharacter: '*',
               decoration: InputDecoration(
@@ -41,9 +50,21 @@ class LoginPage extends StatelessWidget {
           ),
           ElevatedButton(
               onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => HomePage()));
+                if (uname.text != "" && pass.text != "") {
+                  if(uname.text == username && pass.text == password){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) =>HomePage()));
+                  }else{
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                      content: Text("Email/Password is Incorrect"),
+                      backgroundColor: Colors.red,));
+                  }
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                    content: Text("Fields Must not be empty"),
+                    backgroundColor: Colors.red,));
+                }
               },
+              
               child: const Text("Login")),
           TextButton(
               onPressed: () {
