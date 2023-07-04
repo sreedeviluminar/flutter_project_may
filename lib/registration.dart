@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_project_may/login.dart';
 
@@ -32,6 +30,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextFormField(
+                textInputAction: TextInputAction.next,
                 decoration: const InputDecoration(
                     border: OutlineInputBorder(), hintText: "UserName"),
                 validator: (email) {
@@ -66,6 +65,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
 
                     border: OutlineInputBorder(),
                     hintText: "Password"),
+                textInputAction: TextInputAction.continueAction,
                 validator: (password) {
                   //password - data from text form field
                   // password cannot accessed outside this validator function so the value from
@@ -82,6 +82,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextFormField(
+                textInputAction: TextInputAction.next,
                 obscureText: showpwd2,
                 obscuringCharacter: '*',
                 decoration: InputDecoration(
