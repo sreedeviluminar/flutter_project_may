@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_project_may/login.dart';
 
@@ -9,6 +11,9 @@ class RegistrationPage extends StatefulWidget {
 class _RegistrationPageState extends State<RegistrationPage> {
   //to validate the entire form
   final formkey = GlobalKey<FormState>();
+  var confirmpass; // to store value from password field
+  bool showpwd = true;
+  bool showpwd2 = true;
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +33,9 @@ class _RegistrationPageState extends State<RegistrationPage> {
               padding: const EdgeInsets.all(8.0),
               child: TextFormField(
                 decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: "UserName"),
-                validator: (email) {  // email - data from text form field
+                    border: OutlineInputBorder(), hintText: "UserName"),
+                validator: (email) {
+                  // email - data from text form field
                   if (email!.isEmpty || !email.contains('@')) {
                     return "Enter a valid email/ field must not be empty";
                   } else {
@@ -42,29 +47,76 @@ class _RegistrationPageState extends State<RegistrationPage> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextFormField(
-                decoration: const InputDecoration(
+                obscureText: showpwd,
+                obscuringCharacter: '*',
+                decoration: InputDecoration(
+                    suffixIcon: IconButton(
+                        onPressed: () {
+                          setState(() {
+                            if (showpwd) {
+                              showpwd = false;
+                            } else {
+                              showpwd = true;
+                            }
+                          });
+                        },
+                        icon: Icon(showpwd == true
+                            ? Icons.visibility
+                            : Icons.visibility_off_sharp)),
+
                     border: OutlineInputBorder(),
                     hintText: "Password"),
-                validator: (password){
-                  if (password!.isEmpty || password.length < 6){
+                validator: (password) {
+                  //password - data from text form field
+                  // password cannot accessed outside this validator function so the value from
+                  // password field assigned to  the instant variable confirmpass
+                  confirmpass = password;
+                  if (password!.isEmpty || password.length < 6) {
                     return "Password length should be greater than 6 / must not be empty ";
-                  }else{
+                  } else {
                     return null;
                   }
                 },
               ),
             ),
-            TextFormField(),
-            ElevatedButton(onPressed: () {
-              var isValid = formkey.currentState!.validate();
-              if(isValid == true){
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context)=>LoginPage()));
-              }else{
-
-              }
-
-            }, child: const Text("RegistrationPage"))
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextFormField(
+                obscureText: showpwd2,
+                obscuringCharacter: '*',
+                decoration: InputDecoration(
+                  suffixIcon: IconButton(
+                      onPressed: () {
+                        setState(() {
+                          if (showpwd2) {
+                            showpwd2 = false;
+                          } else {
+                            showpwd2 = true;
+                          }
+                        });
+                      },
+                      icon: Icon(showpwd2 == true
+                          ? Icons.visibility
+                          : Icons.visibility_off_sharp)),
+                    border: OutlineInputBorder(), hintText: "ConfirmPassword"),
+                validator: (cpassword) {
+                  if (cpassword != confirmpass || cpassword!.isEmpty) {
+                    return "Password Mismatch/ empty";
+                  } else {
+                    return null;
+                  }
+                },
+              ),
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  var isValid = formkey.currentState!.validate();
+                  if (isValid == true) {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => LoginPage()));
+                  } else {}
+                },
+                child: const Text("RegistrationPage"))
           ],
         ),
       ),
