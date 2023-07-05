@@ -21,7 +21,8 @@ class HomePage extends StatelessWidget {
               leading: Image.asset("assets/icons/apple.png"),
               title: Text("Apple"),
               subtitle: Text("\$200"),
-              trailing: IconButton(onPressed: (){}, icon: const Icon(Icons.shopping_cart)),
+              trailing: IconButton(onPressed: (){},
+                  icon: const Icon(Icons.shopping_cart)),
             ),
           ),
           const Card(
@@ -29,7 +30,8 @@ class HomePage extends StatelessWidget {
             elevation: 5,
             shadowColor:Colors.red,
             child: ListTile(
-                leading: CircleAvatar(backgroundImage: AssetImage("assets/images/greennew.jpg")),
+                leading: CircleAvatar(
+                    backgroundImage: AssetImage("assets/images/greennew.jpg")),
                 title: Text("Mango"),
                 subtitle: Text("\$100"),
                 trailing: Icon(Icons.shopping_cart),),
