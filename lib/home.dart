@@ -2,14 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
-  runApp(MaterialApp(home: HomePage()));
+  runApp(
+    MaterialApp(
+      theme: ThemeData(primarySwatch: Colors.green),
+      home: HomePage(),
+      debugShowCheckedModeBanner: false,
+    ),
+  );
 }
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("MyHome")),
+      appBar: AppBar(
+        title: const Text("MyHome"),
+        actions: [
+          Icon(Icons.camera_alt),
+          SizedBox(
+            width: 30,
+          ),
+          Icon(Icons.search),
+        ],
+      ),
       body: ListView(
         children: [
           Center(
@@ -20,8 +35,17 @@ class HomePage extends StatelessWidget {
             child: ListTile(
               leading: Image.asset("assets/icons/apple.png"),
               title: const Text("Apple"),
-              subtitle: const Text("\$200"),
-              trailing: Wrap(children: [
+              subtitle: const Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(
+                    Icons.done_all,
+                    color: Colors.blueAccent,
+                  ),
+                  Text("Hello"),
+                ],
+              ),
+              trailing: Wrap(direction: Axis.vertical, children: [
                 IconButton(
                     onPressed: () {}, icon: const Icon(Icons.shopping_cart)),
                 IconButton(
@@ -41,7 +65,7 @@ class HomePage extends StatelessWidget {
                   style: GoogleFonts.aBeeZee(),
                 ),
                 subtitle: const Text("\$100"),
-                trailing: const Row(
+                trailing: const Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Padding(
