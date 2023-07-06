@@ -11,6 +11,7 @@ class RoWEx extends StatelessWidget {
         width: 100,
         height: 100,
         child: Row(
+         // mainAxisSize: MainAxisSize.min,
           children: [
            Icon(Icons.ac_unit_outlined,size: 20,),
             Icon(Icons.ac_unit_outlined,size: 20,),

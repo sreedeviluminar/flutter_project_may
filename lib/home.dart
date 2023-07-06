@@ -21,8 +21,12 @@ class HomePage extends StatelessWidget {
               leading: Image.asset("assets/icons/apple.png"),
               title: const Text("Apple"),
               subtitle: const Text("\$200"),
-              trailing: IconButton(
-                  onPressed: () {}, icon: const Icon(Icons.shopping_cart)),
+              trailing: Wrap(children: [
+                IconButton(
+                    onPressed: () {}, icon: const Icon(Icons.shopping_cart)),
+                IconButton(
+                    onPressed: () {}, icon: const Icon(Icons.shopping_cart)),
+              ]),
             ),
           ),
           Card(
