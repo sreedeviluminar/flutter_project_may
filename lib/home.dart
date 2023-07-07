@@ -54,7 +54,7 @@ class HomePage extends StatelessWidget {
                   Text("Hello"),
                 ],
               ),
-              trailing: Wrap(direction: Axis.vertical, children: [
+              trailing: Column(children: [
                 IconButton(
                     onPressed: () {}, icon: const Icon(Icons.shopping_cart)),
                 IconButton(

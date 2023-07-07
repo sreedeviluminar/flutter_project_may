@@ -4,26 +4,48 @@ void main() {
 }
 
 class ListView3 extends StatelessWidget {
-  const ListView3({super.key});
 
+  var names = [
+    "Anu",
+    "giri",
+    "boby",
+    "SHONI",
+    "Anju",
+    "Meera",
+    "Abin",
+    "Anu",
+    "giri",
+    "boby",
+    "SHONI",
+    "Anju",
+    "Meera",
+    "Abin",
+    "Meera",
+    "Abin",
+    "Meera",
+    "Abin",
+    "Meera",
+    "Abin"
+  ];
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(title: Text("ListView Builder"),),
-
       body: ListView.builder(
-          itemCount:  5,
+        itemCount: 20 ,
           itemBuilder: (context,index){
         return Card(
               //color: Colors.brown,
                 child: ListTile(
                   leading: Image.asset("assets/icons/apple.png"),
-                  title: Text("szsdzd"),
+                  title: Text(names[index]),
                   subtitle: Text("Hello"),
                   trailing: Text("11.30"),
                 ));
 
       }),
+      floatingActionButton: FloatingActionButton(onPressed: (){}),
     );
   }
 }
