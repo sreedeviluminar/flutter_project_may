@@ -18,11 +18,20 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("MyHome"),
         actions: [
-          Icon(Icons.camera_alt),
-          SizedBox(
+          const Icon(Icons.camera_alt),
+          const SizedBox(
             width: 30,
           ),
-          Icon(Icons.search),
+          const Icon(Icons.search),
+          PopupMenuButton(itemBuilder: (context) {
+            return [
+              const PopupMenuItem(child: Text("Settings")),
+              const PopupMenuItem(child: Text("New Group")),
+              const PopupMenuItem(child: Text("Payments")),
+              const PopupMenuItem(child: Text("NewBroadCast")),
+              const PopupMenuItem(child: Text("Settings")),
+            ];
+          })
         ],
       ),
       body: ListView(
@@ -33,7 +42,7 @@ class HomePage extends StatelessWidget {
                       fontSize: 80, color: Colors.green))),
           Card(
             child: ListTile(
-              leading: Image.asset("assets/icons/apple.png"),
+              leading: Image.asset("assets/images/greennew.jpg"),
               title: const Text("Apple"),
               subtitle: const Row(
                 mainAxisSize: MainAxisSize.min,
@@ -77,10 +86,78 @@ class HomePage extends StatelessWidget {
                   ],
                 )),
           ),
-          Image.asset("assets/icons/orange.png"),
-          Image.asset("assets/icons/grapes.png"),
-          Image.asset("assets/icons/bananas.png"),
-          Image.asset("assets/icons/pineapple.png"),
+          Card(
+            color: Colors.lightGreen,
+            elevation: 5,
+            shadowColor: Colors.red,
+            child: ListTile(
+                leading: const CircleAvatar(
+                    backgroundImage: AssetImage("assets/images/greennew.jpg")),
+                title: Text(
+                  "Mango",
+                  style: GoogleFonts.aBeeZee(),
+                ),
+                subtitle: const Text("\$100"),
+                trailing: const Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(right: 8.0),
+                      child: Icon(Icons.favorite),
+                    ),
+                    // SizedBox(width: 20,),
+                    Icon(Icons.shopping_cart)
+                  ],
+                )),
+          ),
+          Card(
+            color: Colors.lightGreen,
+            elevation: 5,
+            shadowColor: Colors.red,
+            child: ListTile(
+                leading: const CircleAvatar(
+                    backgroundImage: AssetImage("assets/images/greennew.jpg")),
+                title: Text(
+                  "Mango",
+                  style: GoogleFonts.aBeeZee(),
+                ),
+                subtitle: const Text("\$100"),
+                trailing: const Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(right: 8.0),
+                      child: Icon(Icons.favorite),
+                    ),
+                    // SizedBox(width: 20,),
+                    Icon(Icons.shopping_cart)
+                  ],
+                )),
+          ),
+          Card(
+            color: Colors.lightGreen,
+            elevation: 5,
+            shadowColor: Colors.red,
+            child: ListTile(
+                leading: const CircleAvatar(
+                    backgroundImage: AssetImage("assets/images/greennew.jpg")),
+                title: Text(
+                  "Mango",
+                  style: GoogleFonts.aBeeZee(),
+                ),
+                subtitle: const Text("\$100"),
+                trailing: const Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(right: 8.0),
+                      child: Icon(Icons.favorite),
+                    ),
+                    // SizedBox(width: 20,),
+                    Icon(Icons.shopping_cart)
+                  ],
+                )),
+          ),
         ],
       ),
     );
