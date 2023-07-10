@@ -50,6 +50,7 @@ class ListView2 extends StatelessWidget {
     "assets/icons/tree.png",
   ];
 
+  var icon = [Icons.add,Icons.ac_unit,Icons.account_box];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,16 +58,11 @@ class ListView2 extends StatelessWidget {
         title: Text("ListVie 2"),
       ),
       body: ListView(
-        children: List.generate(
-            20,
-            (index) => Card(
-                    //color: Colors.brown,
-                    child: ListTile(
-                  leading: Image.asset(images[index]),
-                  title: Text(names[index]),
-                  subtitle: Text("Hello"),
-                  trailing: Text("11.30"),
-                ))),
+        children: List.generate(3, (index) => Card(
+         //child: Image.asset(images[index]),
+          child: Icon(icon[index]),
+         color: Colors.yellow,
+        ))
       ),
     );
   }
