@@ -24,7 +24,12 @@ class TabbarEx extends StatelessWidget {
               )
             ],
             bottom: const TabBar(tabs: [
-              Icon(Icons.people),
+              Column(
+                children: [
+                  Icon(Icons.people),
+                  Text("Community")
+                ],
+              ),
               Text("Chats"),
               Text("Status"),
               Text("Calls")
