@@ -38,12 +38,8 @@ class TabbarEx extends StatelessWidget {
           body: TabBarView(
             children: [
               LoginPage(),
-              const Center(
-                child: Text("Chat"),
-              ),
-              Center(
-                child: Text("Status"),
-              ),
+              const Center(child: Text("Chat"),),
+              Center(child: Text("Status"),),
               Center(child: Text("Call")),
             ],
           )),
