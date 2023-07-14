@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-
+void main() {
+  runApp(MaterialApp(
+    home: SampleHome(),
+  ));
+}
 class SampleHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -28,7 +32,6 @@ class SampleHome extends StatelessWidget {
             );
           });
     }
-
     return WillPopScope(
         onWillPop: showAlert,
         child: const Scaffold(
