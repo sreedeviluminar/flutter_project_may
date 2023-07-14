@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,11 +18,14 @@ class GridView3 extends StatelessWidget {
         children: List.generate(
             15,
             (index) => Container(
-                decoration:BoxDecoration(color: Colors.black,),
+                decoration:BoxDecoration(
+                  color: Colors.black,),
                 child: Column(
                   children: [
                     Image.asset("assets/icons/mango.png",height: 80,),
-                    const Text("Mango",style: TextStyle(color: Colors.yellow),)
+                    const Text(
+                      "Mango",
+                      style: TextStyle(color: Colors.yellow),)
                   ],
                 ))),
       ),
