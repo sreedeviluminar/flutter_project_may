@@ -5,7 +5,8 @@ class MyWidget extends StatelessWidget{
   VoidCallback? onpress;
   Widget? label;
 
-  MyWidget({this.bgcolor,required this.label, this.image,required this.onpress});
+  MyWidget({this.bgcolor,required this.label,
+    this.image,required this.onpress});
 
   @override
   Widget build(BuildContext context) {
