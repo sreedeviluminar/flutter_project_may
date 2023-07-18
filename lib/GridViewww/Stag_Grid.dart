@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project_may/GridViewww/MyWidget(using%20flutter%20refractoring).dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 void main(){
@@ -18,11 +19,16 @@ class StagGrid extends StatelessWidget {
             crossAxisCount: 4,
             // crossAxisSpacing:5,
             // mainAxisSpacing: 5,
-            children: const [
+            children: [
               StaggeredGridTile.count(
                   crossAxisCellCount: 2,
                   mainAxisCellCount: 1,
-                  child: Card(child: Center(child: Text("1")),color: Colors.red,)),
+                  child: MyWidget(
+                    label: Text("Hello 1"),
+                    onpress: (){},
+                    bgcolor: Colors.red,
+                    image: Image.asset("assets/icons/grapes.png"),)),
+
               StaggeredGridTile.count(
                   crossAxisCellCount: 1,
                   mainAxisCellCount: 2,
