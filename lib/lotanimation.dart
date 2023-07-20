@@ -10,8 +10,7 @@ class LotiieAnim extends StatelessWidget {
     return Scaffold(
       body: Center(
        // child: Lottie.asset("assets/animations/penguin.json"),
-        child: Lottie.network("https://lottie.host/f2354035-330f-4e34-8c6d-9db186318977/LO9TLTXY5v.json"),
-        
+        child: Lottie.network("https://lottie.host/3445b84b-dc6f-4837-b642-08bee0e935ca/D7EJR3sO75.json"),
       ),
     );
   }
