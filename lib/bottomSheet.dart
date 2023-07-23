@@ -27,13 +27,17 @@ class BottomSheett extends StatelessWidget {
           children: [
             ListTile(
            //   leading: Icon(Icons.share),
-              leading:FaIcon(FontAwesomeIcons.facebook,color: Colors.blue),
+              leading:FaIcon(
+                  FontAwesomeIcons.facebook,
+                  color: Colors.blue),
               title:Text('Share'),
 
             ),
             ListTile(
               //leading: Icon(Icons.copy),
-              leading: FaIcon(FontAwesomeIcons.whatsapp,color: Colors.green,),
+              leading: FaIcon(
+                FontAwesomeIcons.whatsapp,
+                color: Colors.green,),
               title:Text('Copy'),
             )
           ],
