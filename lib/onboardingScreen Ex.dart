@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project_may/login.dart';
+import 'package:flutter_project_may/splash%20Screen.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
+void main() {
+  runApp(MaterialApp(
+    home: OnBoardingEx(),
+  ));
+}
 class OnBoardingEx extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     PageDecoration pageDecoration = const PageDecoration(
-        fullScreen: true,
         titleTextStyle: TextStyle(
             color: Colors.black,
             fontStyle: FontStyle.italic,
@@ -18,7 +24,7 @@ class OnBoardingEx extends StatelessWidget {
           Colors.orange,
           Colors.deepOrange,
           Colors.red,
-          Colors.redAccent
+          Colors.yellow
         ], begin: Alignment.topRight, end: Alignment.bottomLeft)));
 
     return IntroductionScreen(
@@ -36,7 +42,7 @@ class OnBoardingEx extends StatelessWidget {
         ),
         PageViewModel(
             decoration: const PageDecoration(
-                fullScreen: true,
+                //fullScreen: true,
                 titleTextStyle: TextStyle(
                     color: Colors.purple,
                     fontStyle: FontStyle.italic,
@@ -62,9 +68,22 @@ class OnBoardingEx extends StatelessWidget {
               child: Image.asset("assets/images/logingirl.png"),
             ),
             title: "Third Page",
-            body:
-                "With Microsoft 365 for families, you can create, organize, and collaborate, all in one place")
+            body: "With Microsoft 365 for families, you can create, organize, and collaborate, all in one place")
       ],
+      onDone: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => LoginPage())),
+      onSkip: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => SplashPage())),
+      showSkipButton: true,
+      skip: const Text("Skip"),
+      next: const Text("Next"),
+      done: const Text("Continue"),
+      dotsDecorator: const DotsDecorator(
+          size: Size(10, 10),
+          color: Colors.black,
+          activeSize: Size(25, 10),
+          activeColor: Colors.red,
+          activeShape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(25),))),
+
     );
   }
 }
