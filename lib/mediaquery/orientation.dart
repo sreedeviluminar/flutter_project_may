@@ -12,10 +12,10 @@ class Run extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // getting the orientation of the app
-    orientation = MediaQuery.of(context).orientation;
+    orientation = MediaQuery.orientationOf(context);
     //size of the window
     //size = MediaQuery.of(context).size;
-    height = MediaQuery.of(context).size.height;
+    height = MediaQuery.sizeOf(context).height;
     width = MediaQuery.of(context).size.width;
 
     return Scaffold(
@@ -28,10 +28,10 @@ class Run extends StatelessWidget {
           ? Container(
               color: Colors.blue,
               height: height / 2,
-              width: width / 4,
+              width: width / 2,
             )
           : Container(
-              height: height / 2,
+              height: height / 3,
               width: width / 2,
               color: Colors.red,
             ),
