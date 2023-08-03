@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
 import 'SharedHome.dart';
 
 void main() {
@@ -16,8 +17,26 @@ class LoginPageShared extends StatefulWidget {
 class _LoginPageSharedState extends State<LoginPageShared> {
   final uname_controller = TextEditingController();
   final pass_controller = TextEditingController();
-
   late SharedPreferences preferences; // shared preference instance
+
+  late bool newuser; // tp store value from shard pref
+
+  @override
+  void initState() {
+    check_user_already_login();
+    super.initState();
+  }
+
+  void check_user_already_login() async {
+    preferences = await SharedPreferences.getInstance()!;
+    ///  if  first condition is null  execute second statement
+    newuser = preferences.getBool('newuser') ?? true;
+
+    if (newuser == false) {
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (context) => SharedHome()));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +66,7 @@ class _LoginPageSharedState extends State<LoginPageShared> {
             ),
             ElevatedButton(
                 onPressed: () async {
-                  preferences =await SharedPreferences.getInstance()!;
+                  preferences = await SharedPreferences.getInstance()!;
                   String username = uname_controller.text;
                   String password = pass_controller.text;
 
