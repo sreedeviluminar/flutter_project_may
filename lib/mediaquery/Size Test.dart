@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
-
 void main() {
-  runApp( MaterialApp(
-        home: MyApp(),
+  runApp(MaterialApp(
+    home: MyApp(),
   ));
 }
 
@@ -14,7 +13,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(),
@@ -51,25 +49,25 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             screenWidth >= 1280 && screenHeight >= 720
                 ? Container(
-              height: 100,
-              width: 700,
-              color: Colors.red,
-            )
+                    height: 100,
+                    width: 700,
+                    color: Colors.red,
+                  )
                 : Container(
-              height: 100,
-              width: 100,
-              color: Colors.blue,
-            ),
+                    height: 100,
+                    width: 100,
+                    color: Colors.blue,
+                  ),
             const SizedBox(
               height: 20,
             ),
             screenOrientation == Orientation.portrait
                 ? const Text(
-              'This device is in portrait mode',
-            )
+                    'This device is in portrait mode',
+                  )
                 : const Text(
-              'This device is in landscape mode',
-            ),
+                    'This device is in landscape mode',
+                  ),
           ],
         ),
       ),

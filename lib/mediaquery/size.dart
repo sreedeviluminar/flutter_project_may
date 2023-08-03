@@ -7,9 +7,14 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MaterialApp(
-    home: Media(),
-  ));
+  runApp(DevicePreview(
+      enabled: !kReleaseMode,
+      builder: (context) => MaterialApp(
+        home: Media(),
+        useInheritedMediaQuery: true,
+        locale: DevicePreview.locale(context),
+        builder: DevicePreview.appBuilder,
+      )));
 }
 
 class Media extends StatelessWidget {
