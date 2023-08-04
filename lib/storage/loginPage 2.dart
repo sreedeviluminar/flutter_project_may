@@ -3,6 +3,12 @@ import 'package:flutter_project_may/storage/SharedHome.dart';
 import 'package:flutter_project_may/storage/registration%20page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+void main() {
+  runApp(MaterialApp(
+    home: Login2(),
+  ));
+}
+
 class Login2 extends StatefulWidget {
   @override
   State<Login2> createState() => _Login2State();
@@ -63,11 +69,10 @@ class _Login2State extends State<Login2> {
 
     if (storedusername == usename && storedpassword == pwd) {
       Navigator.of(context)
-          .push(MaterialPageRoute(
-          builder: (context) => SharedHome()));
+          .push(MaterialPageRoute(builder: (context) => SharedHome()));
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text("Invalid username or password")));
+          const SnackBar(content: Text("Invalid username or password")));
     }
   }
 }

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_project_may/storage/login%20using%20shared%20preference.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'loginPage 2.dart';
+
 class RegistrationPage extends StatefulWidget {
   @override
   State<RegistrationPage> createState() => _RegistrationPageState();
@@ -65,6 +67,6 @@ class _RegistrationPageState extends State<RegistrationPage> {
     preferences.setString('uname', username);
     preferences.setString('pass', password);
 
-    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LoginPageShared()));
+    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Login2()));
   }
 }
