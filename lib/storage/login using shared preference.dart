@@ -18,7 +18,6 @@ class _LoginPageSharedState extends State<LoginPageShared> {
   final uname_controller = TextEditingController();
   final pass_controller = TextEditingController();
   late SharedPreferences preferences; // shared preference instance
-
   late bool newuser; // tp store value from shard pref
 
   @override
@@ -31,7 +30,6 @@ class _LoginPageSharedState extends State<LoginPageShared> {
     preferences = await SharedPreferences.getInstance()!;
     ///  if  first condition is null  execute second statement
     newuser = preferences.getBool('newuser') ?? true;
-
     if (newuser == false) {
       Navigator.of(context)
           .push(MaterialPageRoute(builder: (context) => SharedHome()));
