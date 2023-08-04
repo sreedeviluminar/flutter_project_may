@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project_may/storage/login%20using%20shared%20preference.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class RegistrationPage extends StatefulWidget {
@@ -27,8 +28,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
               child: TextField(
                 controller: name,
                 decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: "Name"),
+                    border: OutlineInputBorder(), hintText: "Name"),
               ),
             ),
             Padding(
@@ -36,8 +36,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
               child: TextField(
                 controller: uname,
                 decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: "UserName"),
+                    border: OutlineInputBorder(), hintText: "UserName"),
               ),
             ),
             Padding(
@@ -45,14 +44,27 @@ class _RegistrationPageState extends State<RegistrationPage> {
               child: TextField(
                 controller: pwd,
                 decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: "Password"),
+                    border: OutlineInputBorder(), hintText: "Password"),
               ),
             ),
-            ElevatedButton(onPressed: () {}, child: const Text("Register Here"))
+            ElevatedButton(
+                onPressed: () => storedata(),
+                child: const Text("Register Here"))
           ],
         ),
       ),
     );
+  }
+  void storedata() async {
+    String personname = name.text;
+    String username = uname.text;
+    String password = pwd.text;
+
+    preferences = await SharedPreferences.getInstance()!;
+    preferences.setString('name', personname);
+    preferences.setString('uname', username);
+    preferences.setString('pass', password);
+
+    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LoginPageShared()));
   }
 }
