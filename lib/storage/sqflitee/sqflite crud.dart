@@ -20,19 +20,19 @@ class _SqfliteCrudState extends State<SqfliteCrud> {
       floatingActionButton:
           //here null means create contact id is null
           FloatingActionButton(
-              onPressed: () => showSheet(null), child: Icon(Icons.add)),
+              onPressed: () => showSheet(null),
+              child: Icon(Icons.add)),
     );
   }
 
   void showSheet(int? id) {
     if (id != null) {}
-
     showModalBottomSheet(
         elevation: 5,
         isScrollControlled: true,
         context: context,
         builder: (context) {
-         return Container(
+          return Container(
             padding: EdgeInsets.only(
                 top: 15,
                 left: 15,
@@ -58,14 +58,18 @@ class _SqfliteCrudState extends State<SqfliteCrud> {
                         //await updateContact();
                       }
                     },
-                    child: Text(id == null ? "Create Contact": "Update Contact"))
+                    child:
+                        Text(id == null ? "Create Contact" :
+                        "Update Contact"))
               ],
             ),
           );
         });
   }
 
- Future<void> createContact() async{
-    await SQLHelper.create_contact(name_controller.text,phone_controller.text);
- }
+  Future<void> createContact() async {
+    await SQLHelper.create_contact(
+        name_controller.text,
+        phone_controller.text);
+  }
 }
