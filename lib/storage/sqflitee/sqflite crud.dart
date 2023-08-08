@@ -10,6 +10,22 @@ class SqfliteCrud extends StatefulWidget {
 class _SqfliteCrudState extends State<SqfliteCrud> {
   final name_controller = TextEditingController();
   final phone_controller = TextEditingController();
+  var isloading = true;     // intially ui is in loading state
+  List<Map<String,dynamic>> contacts =[];  // empty list for storing data from db
+
+  @override
+  void initState() {
+    loadData();
+    super.initState();
+  }
+  void loadData() async{
+    //read data from db
+    final data = await SQLHelper.readData();
+    setState(() {
+      contacts = data;
+    });
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -72,4 +88,6 @@ class _SqfliteCrudState extends State<SqfliteCrud> {
         name_controller.text,
         phone_controller.text);
   }
+
+
 }
