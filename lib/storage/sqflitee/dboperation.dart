@@ -32,5 +32,11 @@ class SQLHelper {
     return db.query("mycontacts",orderBy: 'id');// read all the datas by id
 }
 
-  static updateContact(int? id, String text, String text2) {}
+  static Future<int> updateContact(int? id, String name, String phone) async {
+    final db = await SQLHelper.OpenDb();
+    final udata = {'name':name,'phone':phone};
+    final result = await db.update("mycontacts", udata, where: "id=?",whereArgs: [id]);
+    return result;
+
+  }
 }
