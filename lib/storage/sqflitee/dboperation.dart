@@ -26,4 +26,9 @@ class SQLHelper {
     final id = db.insert('mycontacts', data);
     return id;
   }
+// read all the data from db
+  static Future<List<Map<String,dynamic>>> readData() async{
+    final db = await SQLHelper.OpenDb();
+    return db.query("mycontacts",orderBy: 'id');// read all the datas by id
+}
 }

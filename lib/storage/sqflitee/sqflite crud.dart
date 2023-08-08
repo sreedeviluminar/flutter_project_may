@@ -23,6 +23,7 @@ class _SqfliteCrudState extends State<SqfliteCrud> {
     final data = await SQLHelper.readData();
     setState(() {
       contacts = data;
+      isloading= false;
     });
 
   }
@@ -87,6 +88,7 @@ class _SqfliteCrudState extends State<SqfliteCrud> {
     await SQLHelper.create_contact(
         name_controller.text,
         phone_controller.text);
+    loadData(); // to refresh ui whenever we add a new contact
   }
 
 
