@@ -31,4 +31,6 @@ class SQLHelper {
     final db = await SQLHelper.OpenDb();
     return db.query("mycontacts",orderBy: 'id');// read all the datas by id
 }
+
+  static updateContact(int? id, String text, String text2) {}
 }

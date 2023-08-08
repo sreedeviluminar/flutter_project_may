@@ -109,22 +109,23 @@ class _SqfliteCrudState extends State<SqfliteCrud> {
                         await createContact();
                       }
                       if (id != null) {
-                        //await updateContact();
+                        await updateContact(id);
                       }
                       Navigator.of(context).pop();
                       name_controller.text = "";
                       phone_controller.text = "";
                     },
-                    child:
-                        Text(id == null ? "Create Contact" : "Update Contact"))
+                    child: Text(id == null ? "Create Contact" : "Update Contact"))
               ],
             ),
           );
-        });
-  }
-
+        });}
   Future<void> createContact() async {
     await SQLHelper.create_contact(name_controller.text, phone_controller.text);
     loadData(); // to refresh ui whenever we add a new contact
+  }
+  Future<void> updateContact(int? id) async{
+    await SQLHelper.updateContact(id,name_controller.text,phone_controller.text);
+    loadData();
   }
 }
