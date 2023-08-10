@@ -143,6 +143,7 @@ class _SqfliteCrudState extends State<SqfliteCrud> {
     await SQLHelper.deleteData(id);
     loadData(); // refresh ui
     ScaffoldMessenger.of(context)
-        .showSnackBar(const SnackBar(content: Text("Successfully Deleted")));
+        .showSnackBar(const SnackBar(content:
+    Text("Successfully Deleted")));
   }
 }

@@ -32,7 +32,7 @@ class SQLHelper {
     return db.query("mycontacts",orderBy: 'id');// read all the datas by id
 }
 
-// to upadate a single value
+// to update a single value
   static Future<int> updateContact(int? id, String name, String phone) async {
     final db = await SQLHelper.OpenDb();
     final udata = {'name':name,'phone':phone};
@@ -40,7 +40,7 @@ class SQLHelper {
     return result;
 
   }
-
+// to delete a single value
   static Future<void> deleteData(int? id) async {
     final db = await SQLHelper.OpenDb();
     try {
