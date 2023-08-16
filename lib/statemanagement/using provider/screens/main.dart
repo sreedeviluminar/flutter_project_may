@@ -17,8 +17,10 @@ void main() {
 class Homee extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var movie_to_wishlist = context.watch<MovieProvider>().wishmovie;
-    var movies = context.watch<MovieProvider>().movies;
+
+    var movie_to_wishlist = context.watch<MovieProvider>().wishmovie; // empty list from provider
+    var movies = context.watch<MovieProvider>().movies;  // movie list from provider
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Movies"),
