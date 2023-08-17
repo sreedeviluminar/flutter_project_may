@@ -45,7 +45,9 @@ class _CRUD_HIVEState extends State<CRUD_HIVE> {
                       trailing: Wrap(
                         children: [
                           IconButton(
-                              onPressed: () {}, icon: const Icon(Icons.edit)),
+                              onPressed: () {
+                                create_or_edit_Task(task[index]['id']);
+                              }, icon: const Icon(Icons.edit)),
                           IconButton(
                               onPressed: () {}, icon: const Icon(Icons.delete))
                         ],
@@ -60,7 +62,11 @@ class _CRUD_HIVEState extends State<CRUD_HIVE> {
 
   void create_or_edit_Task(int? itemkey) {
     // item key similar to id in sqflite
-    if (itemkey != null) {}
+    if (itemkey != null) {
+      final existing_task = task.firstWhere((element) => element['id']== itemkey);
+      tname.text    = existing_task['taskname'];
+      tcontent.text = existing_task['taskcontent'];
+    }
     showModalBottomSheet(
         isScrollControlled: true,
         elevation: 5,
