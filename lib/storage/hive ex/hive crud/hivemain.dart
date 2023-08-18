@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
 
 void main() async{
   await Hive.initFlutter();
   await Hive.openBox('todo_box');
-  runApp(MaterialApp(home: CRUD_HIVE(),));
+  runApp(MaterialApp(
+    builder: FToastBuilder(),
+    home: CRUD_HIVE(),));
 }
 
 class CRUD_HIVE extends StatefulWidget {
@@ -49,7 +52,9 @@ class _CRUD_HIVEState extends State<CRUD_HIVE> {
                                 create_or_edit_Task(task[index]['id']);
                               }, icon: const Icon(Icons.edit)),
                           IconButton(
-                              onPressed: () {}, icon: const Icon(Icons.delete))
+                              onPressed: () {
+                                deleteTask(task[index]['id']);
+                              }, icon: const Icon(Icons.delete))
                         ],
                       ),
                     ),
@@ -103,7 +108,12 @@ class _CRUD_HIVEState extends State<CRUD_HIVE> {
                         );
                       }
                       if(itemkey != null){
-                       // editTask();
+                        ///edit the values that particular key in hive
+
+                        editTask(itemkey,{
+                         'task_name':tname.text.trim(),
+                         'task_cont':tcontent.text.trim()
+                       });
                       }
                       tname.text="";
                       tcontent.text="";
@@ -138,5 +148,25 @@ class _CRUD_HIVEState extends State<CRUD_HIVE> {
     setState(() {
       task = task_from_hive.reversed.toList();
     });
+  }
+
+  Future<void> editTask(int itemkey, Map<String, dynamic> editedtask) async{
+    await box.put(itemkey, editedtask);
+    refresh_or_read_task();
+  }
+
+  Future<void> deleteTask(int itemkey) async{
+    await box.delete(itemkey);
+    refresh_or_read_task();
+
+    Fluttertoast.showToast(
+        msg: "Successfully Deleted",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.BOTTOM,
+        //timeInSecForIosWeb: 1,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0
+    );
   }
 }
