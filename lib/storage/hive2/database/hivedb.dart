@@ -17,5 +17,8 @@ class HiveDb{
      return db.values.toList();
   }
 
-  addUser(User user) {}
+  Future<void> addUser(User user) async{
+    final db = await Hive.openBox<User>('userData');
+    db.put(user.id, user);
+  }
 }

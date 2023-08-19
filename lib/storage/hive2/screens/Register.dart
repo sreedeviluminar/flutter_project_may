@@ -1,9 +1,20 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_project_may/login.dart';
 import 'package:flutter_project_may/storage/hive2/model/user_model.dart';
 import 'package:get/get.dart';
-
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/adapters.dart';
 import '../database/hivedb.dart';
+import 'Login.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  Hive.initFlutter();
+  Hive.registerAdapter(UserAdapter());
+  await Hive.openBox<User>('userData');
+  runApp(GetMaterialApp(home: HiveRegistration()));
+}
 
 class HiveRegistration extends StatelessWidget {
   final hemail = TextEditingController();
@@ -68,7 +79,7 @@ class HiveRegistration extends StatelessWidget {
           if (pwdvalidation == true) {
             final user = User(email: eemail, password: epwd);
             await HiveDb.instance.addUser(user);
-            Get.back();
+            Get.to(HiveLoginPage());
             Get.snackbar("Success", "Registration Successful",
                 colorText: Colors.green);
           }
