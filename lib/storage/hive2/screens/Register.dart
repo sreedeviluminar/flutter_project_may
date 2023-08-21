@@ -8,13 +8,6 @@ import 'package:hive_flutter/adapters.dart';
 import '../database/hivedb.dart';
 import 'Login.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  Hive.initFlutter();
-  Hive.registerAdapter(UserAdapter());
-  await Hive.openBox<User>('userData');
-  runApp(GetMaterialApp(home: HiveRegistration()));
-}
 
 class HiveRegistration extends StatelessWidget {
   final hemail = TextEditingController();
