@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "789009982595",
+    "project_id": "galvanized-math-356205",
+    "storage_bucket": "galvanized-math-356205.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:789009982595:android:35a0019c25e3b57d18e7b6",
+        "android_client_info": {
+          "package_name": "com.sreedevimay.flutter_project_may"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "789009982595-0e77nc5cn8lfs6n6t6qg9q39kq048a5m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIz0TpckPRzveh7rRbfa_y8w-VbqkNs-E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "789009982595-0e77nc5cn8lfs6n6t6qg9q39kq048a5m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
