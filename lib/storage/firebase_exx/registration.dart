@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project_may/storage/firebase_exx/firebasehelper.dart';
+import 'package:flutter_project_may/storage/firebase_exx/firelogin.dart';
 
 class FireRegistration extends StatefulWidget {
   const FireRegistration({super.key});
@@ -8,10 +10,10 @@ class FireRegistration extends StatefulWidget {
 }
 
 class _FireRegistrationState extends State<FireRegistration> {
-   final remail = TextEditingController();
-   final rpass  = TextEditingController();
+  final remail = TextEditingController();
+  final rpass = TextEditingController();
 
-   @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -23,19 +25,29 @@ class _FireRegistrationState extends State<FireRegistration> {
           children: [
             TextField(
               controller: remail,
-              decoration: const InputDecoration(border: OutlineInputBorder(),hintText: 'Email'),
+              decoration: const InputDecoration(
+                  border: OutlineInputBorder(), hintText: 'Email'),
             ),
             const SizedBox(height: 20,),
             TextField(
               controller: rpass,
-              decoration: const InputDecoration(border: OutlineInputBorder(),hintText: 'Password'),
+              decoration: const InputDecoration(
+                  border: OutlineInputBorder(), hintText: 'Password'),
             ),
             const SizedBox(height: 20,),
-            ElevatedButton(onPressed: (){
+            ElevatedButton(onPressed: () {
               String username = remail.text.trim();
               String password = rpass.text.trim();
-
-            }, child: const Text("Reister Here")),
+              FireHelper().signUp(email: username, pwd: password).then((message) {
+                if (message == null) {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => LoginFire()));
+                }else{
+                  ScaffoldMessenger.of(context).
+                  showSnackBar(SnackBar(content: Text(message)));
+                }
+              });
+            }, child: const Text("Register Here")),
             const SizedBox(height: 10,),
 
           ],
