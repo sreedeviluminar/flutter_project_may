@@ -14,7 +14,8 @@ class HomeFire extends StatelessWidget {
             onPressed: () {
               FireHelper().signOut().then((value) {
                 Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => LoginFire()));
+                    .push(MaterialPageRoute(
+                    builder: (context) => LoginFire()));
               });
             },
             child: Text("Sign_Out")),

@@ -45,6 +45,8 @@ dependencies:
   hive_flutter: ^1.1.0
   fluttertoast: ^8.2.2
   email_validator: ^2.1.17
+  firebase_storage:
+  image_picker:
 
 
   # The following adds the Cupertino Icons font to your application.
